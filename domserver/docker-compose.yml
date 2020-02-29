@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+    database:
+        image: mariadb:latest
+        hostname: database
+        networks:
+            - domjudge_net
+        env_file:
+            - domserver.env
+        volumes:
+            - ../data/database:/var/lib/mysql
+        command: --max-connections=1000
+    domserver:
+        image: domjudge/domserver:7.2.0
+        hostname: domserver
+        networks:
+            - domjudge_net
+        env_file:
+            - domserver.env
+        volumes:
+            - /sys/fs/cgroup:/sys/fs/cgroup:ro
+            - ./start.sh:/scripts/start.sh
+            - ./add_cds_user.php:/scripts/add_cds_user.php
+        ports:
+            - 127.0.0.1:5283:80
+        depends_on:
+            - database
+
+networks:
+    domjudge_net:
+        driver: bridge

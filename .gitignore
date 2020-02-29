@@ -1,0 +1,9 @@
+data/
+vars-*.sh
+domserver/domserver.env
+domserver/start.sh
+domserver/add_cds_user.php
+judgehost/judgehost.env
+cds/cdsConfig.xml
+cds/server.xml
+cds/users.xml

@@ -1,0 +1,9 @@
+<server description="ICPC contest clients">
+    <!-- Change passwords immediately to secure the contest -->
+    <basicRegistry>
+        <user name="admin" password="${cds_admin_password}"/>
+        <user name="presAdmin" password="${cds_pres_admin_password}"/>
+        <user name="balloon" password="${cds_balloon_password}"/>
+        <user name="presentation" password="${cds_presentation_password}"/>
+    </basicRegistry>
+</server>

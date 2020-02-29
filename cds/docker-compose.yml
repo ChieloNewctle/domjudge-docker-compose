@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+    cds:
+        build: ./src
+        networks:
+            - domserver_domjudge_net
+        volumes:
+            - ./cdsConfig.xml:/opt/wlp/usr/servers/cds/config/cdsConfig.xml
+            - ./users.xml:/opt/wlp/usr/servers/cds/users.xml
+            - ./server.xml:/opt/wlp/usr/servers/cds/server.xml
+            - ../data/cds:/opt/wlp/contest-data
+        ports:
+            - 127.0.0.1:5284:443
+
+networks:
+    domserver_domjudge_net:
+        external: true

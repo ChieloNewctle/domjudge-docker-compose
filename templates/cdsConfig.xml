@@ -1,0 +1,11 @@
+<cds>
+    <!-- Set location= to a directory that the user running the CDS can write to -->
+    <contest location="/opt/wlp/contest-data" recordReactions="true">
+        <!-- Set the url to the URL of your DOMjudge installation, followed by /api/contests/<cid>, where <cid> is your CID or external ID -->
+        <!-- Set the user and password to the user you created in the previous step -->
+        <ccs
+            url="http://domserver/api/contests/<cid>"
+            user="cds"
+            password="${domserver_cds_password}" />
+    </contest>
+</cds>
